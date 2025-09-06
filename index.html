@@ -328,8 +328,8 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
             background: linear-gradient(135deg, 
                 rgba(255, 255, 255, 0.9) 0%, 
                 rgba(255, 255, 255, 0.7) 25%,
@@ -344,6 +344,23 @@
             display: block;
             width: fit-content;
             margin: 0 auto 20px auto;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero h1:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 1) 0%, 
+                rgba(0, 255, 255, 1) 25%,
+                rgba(255, 0, 255, 1) 50%,
+                rgba(0, 255, 255, 1) 75%,
+                rgba(255, 255, 255, 1) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
         }
 
         @keyframes glow {
@@ -355,6 +372,25 @@
             font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hero p:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .hero-emoji {
+            font-size: 1.5em;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .hero-emoji:hover {
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
         }
 
         .cta-button {
@@ -494,27 +530,54 @@
         .about-content h3 {
             transition: all 0.3s ease;
             position: relative;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         .about-content:hover h3 {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.8) 0%, 
-                rgba(0, 255, 255, 0.7) 50%,
-                rgba(255, 255, 255, 0.8) 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-            transform: scale(1.05);
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
 
         .about-content p {
             transition: all 0.3s ease;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
         }
 
         .about-content:hover p {
             color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        .about-content p:nth-child(even) {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.1) 0%, 
+                rgba(255, 0, 255, 0.05) 50%,
+                rgba(0, 255, 255, 0.1) 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid rgba(0, 255, 255, 0.5);
+            margin: 10px 0;
+        }
+
+        .about-content p:nth-child(odd) {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 255, 0.1) 0%, 
+                rgba(0, 255, 255, 0.05) 50%,
+                rgba(255, 0, 255, 0.1) 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid rgba(255, 0, 255, 0.5);
+            margin: 10px 0;
+        }
+
+        .emoji-highlight {
+            font-size: 1.3em;
+            display: inline-block;
         }
 
         @keyframes fadeIn {
@@ -536,21 +599,30 @@
             border-radius: 15px;
             text-align: center;
             backdrop-filter: blur(15px);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .skill-card:hover {
             transform: translateY(-10px) scale(1.05);
-            background: rgba(150, 150, 255, 0.2);
-            border-color: rgba(150, 150, 255, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.15);
         }
 
         .skill-icon {
             font-size: 3rem;
             margin-bottom: 20px;
             display: block;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
         }
 
         .skill-card h3 {
@@ -564,6 +636,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover h3 {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(0, 255, 255, 0.8) 50%,
+                rgba(255, 255, 255, 0.9) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
         }
 
         /* Experience Section */
@@ -608,15 +693,18 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             width: 45%;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
         }
 
         .experience-content:hover {
             transform: translateY(-5px);
-            background: rgba(150, 150, 255, 0.2);
-            border-color: rgba(150, 150, 255, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(255, 255, 255, 0.08);
         }
 
         .experience-dot {
@@ -957,7 +1045,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1>Khadar Chittor</h1>
-                <p>I'm a passionate developer creating amazing digital experiences</p>
+                <p><span class="hero-emoji">💻</span> Coding with purpose, passion, and just the right amount of <span class="hero-emoji">☕</span> caffeine.</p>
                 <a href="#about" class="cta-button">Discover More</a>
             </div>
         </section>
@@ -966,10 +1054,14 @@
         <section id="about" class="section">
             <h2 class="animate-on-scroll">About Me</h2>
             <div class="about-content animate-on-scroll">
-                <h3>Hello there!</h3>
-                <p>I'm a dedicated developer with a passion for creating innovative solutions and beautiful user experiences. With a strong foundation in modern web technologies, I love turning ideas into reality through clean, efficient code.</p>
-                <br>
-                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities. I believe in continuous learning and staying up-to-date with the latest industry trends.</p>
+                <h3>Hi, I'm Khadar Chittor <span class="emoji-highlight">👋</span></h3>
+                <p>I'm a developer who loves turning ideas into interactive, real-world apps. From building Next.js dashboards to creating <span class="emoji-highlight">🤖</span> AI-powered tools in Python and deploying on the cloud, I thrive on crafting solutions that are both functional and fun!</p>
+                
+                <p>I began my career at HCL Tech as software engineer, where I worked on enterprise solutions, and now I'm a IT Student Tech Lead at CSUF, guiding student projects and supporting systems while sharpening my own skills along the way.</p>
+                
+                <p>Outside of coding, you'll usually find me learning something new (currently geeking out on <span class="emoji-highlight">🤖</span> AI automation), or exploring ways technology can inspire creativity. I believe in building not just for functionality, but for people — making tools that feel intuitive, welcoming, and genuinely useful.</p>
+                
+                <p>If you'd like to collaborate, brainstorm, or just chat about tech, coffee, or cool project ideas, let's connect!</p>
             </div>
         </section>
 
@@ -1153,14 +1245,14 @@
             const nodes = [];
             const connections = [];
             
-            // Create nodes
-            for (let i = 0; i < 50; i++) {
+            // Create nodes (reduced for performance)
+            for (let i = 0; i < 25; i++) {
                 nodes.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    radius: Math.random() * 3 + 2,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    radius: Math.random() * 2 + 1.5,
                     pulse: Math.random() * Math.PI * 2
                 });
             }
@@ -1172,17 +1264,17 @@
                     const strand = document.createElement('div');
                     strand.className = 'dna-strand';
                     strand.style.left = Math.random() * 100 + 'vw';
-                    strand.style.height = Math.random() * 300 + 200 + 'px';
-                    strand.style.animationDuration = (Math.random() * 4 + 6) + 's';
-                    strand.style.animationDelay = Math.random() * 2 + 's';
+                    strand.style.height = Math.random() * 200 + 150 + 'px';
+                    strand.style.animationDuration = (Math.random() * 3 + 8) + 's';
+                    strand.style.animationDelay = Math.random() * 1 + 's';
                     body.appendChild(strand);
                     
                     setTimeout(() => {
                         if (strand.parentNode) {
                             strand.remove();
                         }
-                    }, 10000);
-                }, 500);
+                    }, 12000);
+                }, 1000);
                 animationIntervals.push(interval);
             }
 
@@ -1192,12 +1284,12 @@
                 const interval = setInterval(() => {
                     const orb = document.createElement('div');
                     orb.className = 'energy-orb';
-                    const size = Math.random() * 20 + 10;
+                    const size = Math.random() * 15 + 8;
                     orb.style.width = size + 'px';
                     orb.style.height = size + 'px';
                     orb.style.left = Math.random() * 100 + 'vw';
-                    orb.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                    orb.style.animationDelay = Math.random() * 3 + 's';
+                    orb.style.animationDuration = (Math.random() * 8 + 12) + 's';
+                    orb.style.animationDelay = Math.random() * 2 + 's';
                     body.appendChild(orb);
                     
                     setTimeout(() => {
@@ -1205,7 +1297,7 @@
                             orb.remove();
                         }
                     }, 20000);
-                }, 800);
+                }, 1500);
                 animationIntervals.push(interval);
             }
 
@@ -1217,18 +1309,18 @@
                 const interval = setInterval(() => {
                     const rain = document.createElement('div');
                     rain.className = 'code-rain';
-                    rain.textContent = codeSymbols.substring(0, Math.random() * 20 + 10);
+                    rain.textContent = codeSymbols.substring(0, Math.random() * 15 + 8);
                     rain.style.left = Math.random() * 100 + 'vw';
-                    rain.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                    rain.style.animationDelay = Math.random() * 2 + 's';
+                    rain.style.animationDuration = (Math.random() * 3 + 6) + 's';
+                    rain.style.animationDelay = Math.random() * 1 + 's';
                     body.appendChild(rain);
                     
                     setTimeout(() => {
                         if (rain.parentNode) {
                             rain.remove();
                         }
-                    }, 8000);
-                }, 200);
+                    }, 9000);
+                }, 500);
                 animationIntervals.push(interval);
             }
 
@@ -1274,13 +1366,13 @@
                         const dy = other.y - node.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
                         
-                        if (distance < 150) {
-                            const connectionAlpha = (1 - distance / 150) * 0.3;
+                        if (distance < 120) {
+                            const connectionAlpha = (1 - distance / 120) * 0.2;
                             ctx.beginPath();
                             ctx.moveTo(node.x, node.y);
                             ctx.lineTo(other.x, other.y);
                             ctx.strokeStyle = `rgba(255, 0, 255, ${connectionAlpha})`;
-                            ctx.lineWidth = 1;
+                            ctx.lineWidth = 0.5;
                             ctx.stroke();
                         }
                     }
@@ -1394,32 +1486,25 @@
                 mouseX = e.clientX;
                 mouseY = e.clientY;
 
-                // Create multiple trail particles for density
-                for (let i = 0; i < 3; i++) {
-                    const trail = document.createElement('div');
-                    trail.className = 'cursor-trail';
-                    
-                    // Add slight random offset for more natural look
-                    const offsetX = (Math.random() - 0.5) * 10;
-                    const offsetY = (Math.random() - 0.5) * 10;
-                    
-                    trail.style.left = (e.clientX + offsetX) + 'px';
-                    trail.style.top = (e.clientY + offsetY) + 'px';
-                    
-                    // Randomize size slightly
-                    const size = 6 + Math.random() * 4;
-                    trail.style.width = size + 'px';
-                    trail.style.height = size + 'px';
-                    
-                    document.body.appendChild(trail);
+                // Create single trail particle for performance
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                
+                const size = 6;
+                trail.style.width = size + 'px';
+                trail.style.height = size + 'px';
+                
+                document.body.appendChild(trail);
 
-                    // Remove trail after animation
-                    setTimeout(() => {
-                        if (trail.parentNode) {
-                            trail.remove();
-                        }
-                    }, 800);
-                }
+                // Remove trail after animation
+                setTimeout(() => {
+                    if (trail.parentNode) {
+                        trail.remove();
+                    }
+                }, 600);
             });
 
             // Smooth cursor following animation
