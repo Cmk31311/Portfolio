@@ -599,18 +599,21 @@
             border-radius: 15px;
             text-align: center;
             backdrop-filter: blur(15px);
-            transition: all 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            will-change: transform;
         }
 
         .skill-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 
-                0 15px 30px rgba(0, 0, 0, 0.3),
-                0 0 20px rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.5);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(0, 255, 255, 0.1) 25%,
+                rgba(255, 0, 255, 0.1) 50%,
+                rgba(0, 255, 255, 0.1) 75%,
+                rgba(0, 0, 0, 0.6) 100%);
         }
 
         .skill-icon {
@@ -693,18 +696,21 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             width: 45%;
-            transition: all 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
             position: relative;
+            will-change: transform;
         }
 
         .experience-content:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 
-                0 15px 30px rgba(0, 0, 0, 0.25),
-                0 0 20px rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.5);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(0, 255, 255, 0.1) 25%,
+                rgba(255, 0, 255, 0.1) 50%,
+                rgba(0, 255, 255, 0.1) 75%,
+                rgba(0, 0, 0, 0.6) 100%);
         }
 
         .experience-dot {
@@ -743,6 +749,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .experience-content:hover .experience-position {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(0, 255, 255, 0.8) 50%,
+                rgba(255, 255, 255, 0.9) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
         }
 
         .experience-company {
@@ -757,6 +776,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .experience-content:hover .experience-company {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(0, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.9) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            transform: scale(1.03);
         }
 
         .experience-duration {
@@ -792,9 +824,10 @@
             background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            will-change: transform;
         }
 
         .project-card:hover {
@@ -1057,9 +1090,9 @@
                 <h3>Hi, I'm Khadar Chittor <span class="emoji-highlight">👋</span></h3>
                 <p>I'm a developer who loves turning ideas into interactive, real-world apps. From building Next.js dashboards to creating <span class="emoji-highlight">🤖</span> AI-powered tools in Python and deploying on the cloud, I thrive on crafting solutions that are both functional and fun!</p>
                 
-                <p>I began my career at HCL Tech as a Software engineer, where I worked on enterprise solutions, and now I'm an IT Student Tech Lead at CSUF, guiding students and supporting systems while sharpening my own skills along the way.</p>
+                <p>I began my career at HCL Tech as software engineer, where I worked on enterprise solutions, and now I'm a IT Student Tech Lead at CSUF, guiding student projects and supporting systems while sharpening my own skills along the way.</p>
                 
-                <p>Outside of coding, you'll usually find me learning something new (currently geeking out on <span class="emoji-highlight">🤖</span> GenAI), or exploring ways technology can inspire creativity. I believe in building not just for functionality, but for people — making tools that feel intuitive, welcoming, and genuinely useful.</p>
+                <p>Outside of coding, you'll usually find me learning something new (currently geeking out on <span class="emoji-highlight">🤖</span> AI automation), or exploring ways technology can inspire creativity. I believe in building not just for functionality, but for people — making tools that feel intuitive, welcoming, and genuinely useful.</p>
                 
                 <p>If you'd like to collaborate, brainstorm, or just chat about tech, coffee, or cool project ideas, let's connect!</p>
             </div>
@@ -1324,56 +1357,60 @@
                 animationIntervals.push(interval);
             }
 
-            // Canvas Animation Loop
+            // Canvas Animation Loop (optimized)
+            let frameCount = 0;
             function animate() {
+                frameCount++;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                time += 0.01;
+                
+                // Reduce animation frequency for better performance
+                if (frameCount % 2 === 0) {
+                    time += 0.005; // Slower animation
+                }
 
-                // Update and draw nodes
+                // Update and draw nodes (simplified)
                 nodes.forEach((node, i) => {
-                    // Move nodes
-                    node.x += node.vx;
-                    node.y += node.vy;
+                    // Move nodes less frequently
+                    if (frameCount % 2 === 0) {
+                        node.x += node.vx;
+                        node.y += node.vy;
+                        
+                        // Bounce off edges
+                        if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
+                        if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
+                        
+                        // Keep nodes in bounds
+                        node.x = Math.max(0, Math.min(canvas.width, node.x));
+                        node.y = Math.max(0, Math.min(canvas.height, node.y));
+                    }
                     
-                    // Bounce off edges
-                    if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
-                    if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
+                    // Simplified pulsing effect
+                    const pulse = Math.sin(time * 2 + node.pulse) * 0.3 + 0.7;
+                    const alpha = 0.4 + pulse * 0.4;
                     
-                    // Keep nodes in bounds
-                    node.x = Math.max(0, Math.min(canvas.width, node.x));
-                    node.y = Math.max(0, Math.min(canvas.height, node.y));
-                    
-                    // Pulsing effect
-                    const pulse = Math.sin(time * 3 + node.pulse) * 0.5 + 0.5;
-                    const alpha = 0.3 + pulse * 0.7;
-                    
-                    // Draw node
+                    // Draw node (simplified)
                     ctx.beginPath();
                     ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(0, 255, 255, ${alpha})`;
                     ctx.fill();
                     
-                    // Add glow effect
-                    ctx.shadowBlur = 10;
-                    ctx.shadowColor = 'rgba(0, 255, 255, 0.8)';
-                    ctx.fill();
-                    ctx.shadowBlur = 0;
-                    
-                    // Draw connections to nearby nodes
-                    for (let j = i + 1; j < nodes.length; j++) {
-                        const other = nodes[j];
-                        const dx = other.x - node.x;
-                        const dy = other.y - node.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 120) {
-                            const connectionAlpha = (1 - distance / 120) * 0.2;
-                            ctx.beginPath();
-                            ctx.moveTo(node.x, node.y);
-                            ctx.lineTo(other.x, other.y);
-                            ctx.strokeStyle = `rgba(255, 0, 255, ${connectionAlpha})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
+                    // Draw connections less frequently
+                    if (frameCount % 3 === 0) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const other = nodes[j];
+                            const dx = other.x - node.x;
+                            const dy = other.y - node.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 100) {
+                                const connectionAlpha = (1 - distance / 100) * 0.15;
+                                ctx.beginPath();
+                                ctx.moveTo(node.x, node.y);
+                                ctx.lineTo(other.x, other.y);
+                                ctx.strokeStyle = `rgba(255, 0, 255, ${connectionAlpha})`;
+                                ctx.lineWidth = 0.3;
+                                ctx.stroke();
+                            }
                         }
                     }
                 });
@@ -1402,17 +1439,27 @@
             });
         });
 
-        // Animate elements on scroll
+        // Animate elements on scroll (optimized)
+        let scrollTimeout;
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            const windowHeight = window.innerHeight;
+            // Throttle scroll events for better performance
+            if (scrollTimeout) {
+                return;
+            }
+            
+            scrollTimeout = setTimeout(() => {
+                const elements = document.querySelectorAll('.animate-on-scroll:not(.animated)');
+                const windowHeight = window.innerHeight;
 
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight * 0.8) {
-                    element.classList.add('animated');
-                }
-            });
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < windowHeight * 0.8) {
+                        element.classList.add('animated');
+                    }
+                });
+                
+                scrollTimeout = null;
+            }, 16); // ~60fps
         }
 
         // Initialize EmailJS
@@ -1482,29 +1529,39 @@
             let mouseX = 0, mouseY = 0;
             let cursorX = 0, cursorY = 0;
 
+            let mouseTimeout;
             document.addEventListener('mousemove', function(e) {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
 
-                // Create single trail particle for performance
-                const trail = document.createElement('div');
-                trail.className = 'cursor-trail';
+                // Throttle cursor trail creation for better performance
+                if (mouseTimeout) {
+                    return;
+                }
                 
-                trail.style.left = e.clientX + 'px';
-                trail.style.top = e.clientY + 'px';
-                
-                const size = 6;
-                trail.style.width = size + 'px';
-                trail.style.height = size + 'px';
-                
-                document.body.appendChild(trail);
+                mouseTimeout = setTimeout(() => {
+                    // Create single trail particle for performance
+                    const trail = document.createElement('div');
+                    trail.className = 'cursor-trail';
+                    
+                    trail.style.left = e.clientX + 'px';
+                    trail.style.top = e.clientY + 'px';
+                    
+                    const size = 5;
+                    trail.style.width = size + 'px';
+                    trail.style.height = size + 'px';
+                    
+                    document.body.appendChild(trail);
 
-                // Remove trail after animation
-                setTimeout(() => {
-                    if (trail.parentNode) {
-                        trail.remove();
-                    }
-                }, 600);
+                    // Remove trail after animation
+                    setTimeout(() => {
+                        if (trail.parentNode) {
+                            trail.remove();
+                        }
+                    }, 500);
+                    
+                    mouseTimeout = null;
+                }, 8); // ~120fps
             });
 
             // Smooth cursor following animation
