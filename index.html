@@ -1249,15 +1249,11 @@
         // Animation control variables
         let animationIntervals = [];
 
-        // Resume download function
+        // Resume download function (disabled)
         function downloadResume() {
-            // Download the actual resume file
-            const link = document.createElement('a');
-            link.href = './Khadar-Chittor-Resume.pdf';
-            link.download = 'Khadar_Chittor_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Resume download is currently disabled
+            // The button remains for visual purposes only
+            return false;
         }
 
         // Live Wallpaper Neural Network Animation
