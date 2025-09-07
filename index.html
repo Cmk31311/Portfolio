@@ -54,6 +54,8 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         /* Flowing DNA-like strands */
@@ -485,6 +487,7 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
             filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+            will-change: transform;
         }
 
         @keyframes glow {
@@ -606,102 +609,263 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* About Section */
-        .about-content {
+        /* About Section - Reorganized */
+        .about-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-header h3 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(0, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.9) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .about-header:hover h3 {
+            transform: scale(1.05);
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+        }
+
+        .about-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-intro {
             background: rgba(0, 0, 0, 0.4);
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
             backdrop-filter: blur(15px);
             text-align: center;
             animation: fadeIn 1.5s ease;
-            margin-bottom: 40px;
             border: none;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 280px;
         }
 
-        .about-content:hover {
+        .about-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 255, 255, 0.05) 0%, 
+                rgba(255, 0, 255, 0.05) 50%,
+                rgba(0, 255, 255, 0.05) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .about-intro:hover::before {
+            opacity: 1;
+        }
+
+        .about-intro:hover {
             background: linear-gradient(135deg, 
                 rgba(0, 0, 0, 0.6) 0%, 
                 rgba(0, 255, 255, 0.1) 25%,
                 rgba(255, 0, 255, 0.1) 50%,
                 rgba(0, 255, 255, 0.1) 75%,
                 rgba(0, 0, 0, 0.6) 100%);
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.25);
         }
 
-        .about-content::before {
-            content: '';
+        .intro-decoration {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-        }
-
-        .about-content:hover::before {
-            left: 100%;
-        }
-
-        .about-content h3 {
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, 
+                rgba(0, 255, 255, 0.2) 0%, 
+                rgba(255, 0, 255, 0.2) 100%);
+            border-radius: 50%;
+            opacity: 0.6;
             transition: all 0.3s ease;
-            position: relative;
-            font-size: 2rem;
+        }
+
+        .about-intro:hover .intro-decoration {
+            transform: scale(1.2) rotate(180deg);
+            opacity: 0.8;
+        }
+
+        .intro-decoration::before {
+            content: '💻';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.3rem;
+        }
+
+        .about-intro h4 {
+            font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        .about-content:hover h3 {
-            transform: scale(1.1);
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-        }
-
-        .about-content p {
+            margin-bottom: 15px;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
-            line-height: 1.8;
             position: relative;
+            z-index: 2;
         }
 
-        .about-content:hover p {
+        .about-intro:hover h4 {
+            transform: scale(1.05);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+
+        .about-intro p {
+            font-size: 1rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+
+        .about-intro:hover p {
             color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid transparent;
+            text-align: center;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(0, 255, 255, 0.1) 25%,
+                rgba(255, 0, 255, 0.1) 50%,
+                rgba(0, 255, 255, 0.1) 75%,
+                rgba(0, 0, 0, 0.6) 100%);
+            border-left-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
+            will-change: transform;
+        }
+
+        .highlight-card:nth-child(2):hover {
+            border-left-color: rgba(255, 0, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 0, 255, 0.2);
+        }
+
+        .highlight-card:nth-child(3):hover {
+            border-left-color: rgba(255, 193, 7, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 193, 7, 0.2);
+        }
+
+        .highlight-card:nth-child(4):hover {
+            border-left-color: rgba(0, 255, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+
+        .highlight-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(0, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.8) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            transform: translateX(10px);
         }
 
-        .about-content p:nth-child(even) {
-            background: linear-gradient(135deg, 
-                rgba(0, 255, 255, 0.1) 0%, 
-                rgba(255, 0, 255, 0.05) 50%,
-                rgba(0, 255, 255, 0.1) 100%);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 3px solid rgba(0, 255, 255, 0.5);
-            margin: 10px 0;
+        .highlight-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            transition: all 0.3s ease;
         }
 
-        .about-content p:nth-child(odd) {
-            background: linear-gradient(135deg, 
-                rgba(255, 0, 255, 0.1) 0%, 
-                rgba(0, 255, 255, 0.05) 50%,
-                rgba(255, 0, 255, 0.1) 100%);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 3px solid rgba(255, 0, 255, 0.5);
-            margin: 10px 0;
+        .highlight-card:hover .highlight-text {
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .about-highlights {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .about-intro {
+                padding: 25px;
+                min-height: 250px;
+            }
+            
+            .highlight-card {
+                padding: 20px;
+            }
         }
 
         .emoji-highlight {
             font-size: 1.3em;
             display: inline-block;
         }
+
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -737,6 +901,7 @@
                 rgba(255, 0, 255, 0.1) 50%,
                 rgba(0, 255, 255, 0.1) 75%,
                 rgba(0, 0, 0, 0.6) 100%);
+            will-change: transform;
         }
 
         .skill-icon {
@@ -834,6 +999,7 @@
                 rgba(255, 0, 255, 0.1) 50%,
                 rgba(0, 255, 255, 0.1) 75%,
                 rgba(0, 0, 0, 0.6) 100%);
+            will-change: transform;
         }
 
         .experience-dot {
@@ -963,6 +1129,7 @@
                 rgba(255, 0, 255, 0.1) 50%,
                 rgba(0, 255, 255, 0.1) 75%,
                 rgba(0, 0, 0, 0.6) 100%);
+            will-change: transform;
         }
 
         .project-image {
@@ -1202,22 +1369,51 @@
             <div class="hero-content">
                 <h1>Khadar Chittor</h1>
                 <p>Coding with purpose, passion, and just the right amount of <span class="hero-emoji">☕</span> caffeine.</p>
-                <a href="#about" class="cta-button">Discover More</a>
+                <a href="#about" class="cta-button">Take the Tour</a>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="section">
             <h2 class="animate-on-scroll">About Me</h2>
-            <div class="about-content animate-on-scroll">
-                <h3>Hi, I'm Khadar Chittor <span class="emoji-highlight">👋</span></h3>
-                <p>I'm a developer who loves turning ideas into interactive, real-world apps. From building Next.js apps to creating <span class="emoji-highlight">🤖</span> AI-powered tools in Python and deploying on the cloud, I thrive on crafting solutions that are both functional and fun!</p>
+            
+            <div class="about-header animate-on-scroll">
+                <h3>Hi, I'm Khadar Chittor</h3>
+                <p>I'm a developer who loves turning ideas into interactive, real-world apps. From building interactive web apps to creating <span class="emoji-highlight">🤖</span> AI-powered tools in Python and deploying on the cloud, I thrive on crafting solutions that are both functional and fun!</p>
+            </div>
+            
+            <div class="about-grid animate-on-scroll">
+                <div class="about-intro">
+                    <div class="intro-decoration"></div>
+                    <h4>My Journey</h4>
+                    <p>I began my career at HCL Tech as a Software engineer, where I worked on enterprise solutions for largest bank in Australia, and now I'm an IT Student Tech Lead at CSUF, guiding student projects and supporting systems while sharpening my own skills along the way.</p>
+                </div>
                 
-                <p>I began my career at HCL Tech as a Software engineer, where I worked on enterprise solutions, and now I'm an IT Student Tech Lead at CSUF, guiding student projects and supporting systems while sharpening my own skills along the way.</p>
-                
-                <p>Outside of coding, you'll usually find me learning something new (currently geeking out on <span class="emoji-highlight">🤖</span> GenAI), or exploring ways technology can inspire creativity. I believe in building not just for functionality, but for people - making tools that feel intuitive, welcoming, and genuinely useful.</p>
-                
-                <p>If you'd like to collaborate, brainstorm, or just chat about tech, coffee, or cool project ideas, let's connect!<span class="emoji-highlight">👇</span></p>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <span class="highlight-icon">🌟</span>
+                        <div class="highlight-title">Learning & Innovation</div>
+                        <div class="highlight-text">Outside of coding, you'll usually find me learning something new (currently geeking out on <span class="emoji-highlight">🤖</span> GenAI), or exploring ways technology can inspire creativity.</div>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <span class="highlight-icon">💡</span>
+                        <div class="highlight-title">Philosophy</div>
+                        <div class="highlight-text">I believe in building not just for functionality, but for people - making tools that feel intuitive, welcoming, and genuinely useful.</div>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <span class="highlight-icon">🚀</span>
+                        <div class="highlight-title">Tech Stack</div>
+                        <div class="highlight-text">Python, Next.js, React, GenAI, ML, Cloud deployment, and always exploring new technologies to stay ahead of the curve.</div>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <span class="highlight-icon">🤝</span>
+                        <div class="highlight-title">Let's Connect!</div>
+                        <div class="highlight-text">If you'd like to collaborate, brainstorm, or just chat about tech, coffee, or cool project ideas, let's connect!<span class="emoji-highlight">👇</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1265,7 +1461,7 @@
 
         <!-- Projects Section -->
         <section id="projects" class="section">
-            <h2 class="animate-on-scroll">Featured Projects</h2>
+            <h2 class="animate-on-scroll">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">TaFlo</div>
@@ -1346,7 +1542,7 @@
 
         <!-- Contact Section -->
         <section id="contact" class="section">
-            <h2 class="animate-on-scroll">Get In Touch</h2>
+            <h2 class="animate-on-scroll">Wave Hello to me!</h2>
             <form class="contact-form animate-on-scroll">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -1693,7 +1889,7 @@
                     trail.style.left = e.clientX + 'px';
                     trail.style.top = e.clientY + 'px';
                     
-                    const size = 5;
+                    const size = 4;
                     trail.style.width = size + 'px';
                     trail.style.height = size + 'px';
                     
@@ -1704,10 +1900,10 @@
                         if (trail.parentNode) {
                             trail.remove();
                         }
-                    }, 500);
+                    }, 400);
                     
                     mouseTimeout = null;
-                }, 8); // ~120fps
+                }, 12); // ~80fps for better performance
             });
 
             // Smooth cursor following animation
