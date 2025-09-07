@@ -299,6 +299,130 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
+        /* Social Media Buttons */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .social-btn.github {
+            background: linear-gradient(135deg, 
+                rgba(36, 41, 46, 0.6) 0%, 
+                rgba(255, 87, 34, 0.2) 25%,
+                rgba(255, 193, 7, 0.2) 50%,
+                rgba(40, 167, 69, 0.2) 75%,
+                rgba(36, 41, 46, 0.6) 100%);
+            border: 1px solid rgba(255, 87, 34, 0.3);
+        }
+
+        .social-btn.github:hover {
+            background: linear-gradient(135deg, 
+                rgba(255, 87, 34, 0.3) 0%, 
+                rgba(255, 193, 7, 0.25) 25%,
+                rgba(40, 167, 69, 0.25) 50%,
+                rgba(0, 123, 255, 0.25) 75%,
+                rgba(255, 87, 34, 0.3) 100%);
+            border-color: rgba(255, 87, 34, 0.8);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(255, 87, 34, 0.5),
+                inset 0 1px 0 rgba(255, 193, 7, 0.4);
+        }
+
+        .social-btn.linkedin {
+            background: linear-gradient(135deg, 
+                rgba(0, 119, 181, 0.6) 0%, 
+                rgba(0, 123, 255, 0.2) 25%,
+                rgba(138, 43, 226, 0.2) 50%,
+                rgba(255, 20, 147, 0.2) 75%,
+                rgba(0, 119, 181, 0.6) 100%);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        .social-btn.linkedin:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 123, 255, 0.3) 0%, 
+                rgba(138, 43, 226, 0.25) 25%,
+                rgba(255, 20, 147, 0.25) 50%,
+                rgba(255, 193, 7, 0.25) 75%,
+                rgba(0, 123, 255, 0.3) 100%);
+            border-color: rgba(0, 123, 255, 0.8);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 123, 255, 0.5),
+                inset 0 1px 0 rgba(138, 43, 226, 0.4);
+        }
+
+        .social-icon {
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .social-btn.github:hover .social-icon {
+            filter: drop-shadow(0 0 15px rgba(255, 87, 34, 0.8));
+        }
+
+        .social-btn.linkedin:hover .social-icon {
+            filter: drop-shadow(0 0 15px rgba(0, 123, 255, 0.8));
+        }
+
 
 
         /* Main content */
@@ -491,7 +615,7 @@
             text-align: center;
             animation: fadeIn 1.5s ease;
             margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: none;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -504,7 +628,6 @@
                 rgba(255, 0, 255, 0.1) 50%,
                 rgba(0, 255, 255, 0.1) 75%,
                 rgba(0, 0, 0, 0.6) 100%);
-            border-color: rgba(0, 255, 255, 0.3);
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
         }
@@ -1241,6 +1364,16 @@
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="#" class="resume-btn" onclick="downloadResume()">Download Resume</a>
                 </div>
+                <div class="social-buttons">
+                    <a href="https://github.com/Cmk31311" target="_blank" class="social-btn github" id="githubBtnContact">
+                        <span class="social-icon">📱</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/khadarc/" target="_blank" class="social-btn linkedin" id="linkedinBtnContact">
+                        <span class="social-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
             </form>
         </section>
     </main>
@@ -1254,6 +1387,23 @@
             // Resume download is currently disabled
             // The button remains for visual purposes only
             return false;
+        }
+
+        // Social media button handlers
+        function setupSocialButtons() {
+            // Contact section GitHub button
+            document.getElementById('githubBtnContact').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Open GitHub profile in new tab
+                window.open('https://github.com/Cmk31311', '_blank');
+            });
+
+            // Contact section LinkedIn button
+            document.getElementById('linkedinBtnContact').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Open LinkedIn profile in new tab
+                window.open('https://www.linkedin.com/in/khadarc/', '_blank');
+            });
         }
 
         // Live Wallpaper Neural Network Animation
@@ -1368,16 +1518,16 @@
                 nodes.forEach((node, i) => {
                     // Move nodes less frequently
                     if (frameCount % 2 === 0) {
-                        node.x += node.vx;
-                        node.y += node.vy;
-                        
-                        // Bounce off edges
-                        if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
-                        if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
-                        
-                        // Keep nodes in bounds
-                        node.x = Math.max(0, Math.min(canvas.width, node.x));
-                        node.y = Math.max(0, Math.min(canvas.height, node.y));
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    // Bounce off edges
+                    if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
+                    if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
+                    
+                    // Keep nodes in bounds
+                    node.x = Math.max(0, Math.min(canvas.width, node.x));
+                    node.y = Math.max(0, Math.min(canvas.height, node.y));
                     }
                     
                     // Simplified pulsing effect
@@ -1392,20 +1542,20 @@
                     
                     // Draw connections less frequently
                     if (frameCount % 3 === 0) {
-                        for (let j = i + 1; j < nodes.length; j++) {
-                            const other = nodes[j];
-                            const dx = other.x - node.x;
-                            const dy = other.y - node.y;
-                            const distance = Math.sqrt(dx * dx + dy * dy);
-                            
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const other = nodes[j];
+                        const dx = other.x - node.x;
+                        const dy = other.y - node.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
                             if (distance < 100) {
                                 const connectionAlpha = (1 - distance / 100) * 0.15;
-                                ctx.beginPath();
-                                ctx.moveTo(node.x, node.y);
-                                ctx.lineTo(other.x, other.y);
-                                ctx.strokeStyle = `rgba(255, 0, 255, ${connectionAlpha})`;
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(other.x, other.y);
+                            ctx.strokeStyle = `rgba(255, 0, 255, ${connectionAlpha})`;
                                 ctx.lineWidth = 0.3;
-                                ctx.stroke();
+                            ctx.stroke();
                             }
                         }
                     }
@@ -1445,14 +1595,14 @@
             
             scrollTimeout = setTimeout(() => {
                 const elements = document.querySelectorAll('.animate-on-scroll:not(.animated)');
-                const windowHeight = window.innerHeight;
+            const windowHeight = window.innerHeight;
 
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    if (elementTop < windowHeight * 0.8) {
-                        element.classList.add('animated');
-                    }
-                });
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('animated');
+                }
+            });
                 
                 scrollTimeout = null;
             }, 16); // ~60fps
@@ -1580,6 +1730,7 @@
             createLiveWallpaper();
             animateOnScroll();
             initCustomCursor();
+            setupSocialButtons();
         });
 
         // Run animation check on scroll
